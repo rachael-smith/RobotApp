@@ -1,0 +1,49 @@
+﻿@model RobotProfileViewModel
+<h1>@Model.Robot.RobotName's Profile</h1>
+<hr />
+<form id="createRobot">
+    <div class="robotID" style="display:none">
+        @Html.DisplayFor(x => x.Robot.RobotID)
+    </div>
+    <div class="robotId" value="@Model.Robot.RobotID" style="display:none;"></div>
+    <h4>Robot Name</h4>
+    <div class="robotNameError" style="display:none">Robot name is required</div>
+    @Html.TextBoxFor(x => x.Robot.RobotName, new { @class = "robotName form-control" })
+    <h4>Robot Type</h4>
+    <div class="RobotTypeList">
+        @if (Model.RobotTypesList != null)
+        {
+            <div class="RobotTypeItem">
+                @*TODO: need to select value of robot for dropdown*@
+                @Html.DropDownList("RobotType", Model.RobotTypesList, new { @id = "RobotTypesList", @name = "RobotTypesList", @class = "RobotTypesList form-control" })
+            </div>
+        }
+    </div>
+    <div class="updateProfileBtn">
+        <button class="btn btn-success updateProfile submit" type="submit" disabled="disabled">Update</button>
+    </div>
+</form>
+<script>
+    $('.robotName').keyup(function () {
+        validateUpdateRobot();
+    })
+    $('.RobotTypesList').change(function () {
+        validateCreateRobotModal();
+    })
+    function validateUpdateRobot() {
+        if ($('.robotName').val().trim() == '' || $('#RobotTypesList').val() < 1 || $('#RobotTypesList').val() == "") {
+            $('.submit').prop('disabled', true)
+        } else {
+            $('.submit').prop('disabled', false)
+        }
+    };
+    $('.updateProfile').click(function () {
+        var robotInfo = {
+            RobotID: parseInt($('.robotID').text().trim()),
+            RobotName: $('.robotName').val(),
+            RobotType: parseInt($('.RobotTypeList :selected').val())
+        }
+        UpdateRobot(robotInfo)
+    })
+
+</script>

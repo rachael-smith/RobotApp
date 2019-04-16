@@ -1,0 +1,319 @@
+﻿ul {
+    list-style: none;
+}
+.galactic {
+    padding-left: 38%;
+    margin-bottom: -44px;
+}
+.jumbotron {
+    padding: 2rem 2rem;
+}
+
+.row {
+    overflow-wrap: break-word;
+}
+.backgroundBlack{
+    background-color:black
+}
+.robotImage {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.sweepingRobotImage {
+    width: 12%
+}
+
+.leaderboardTitle {
+    font-weight: bold;
+    text-align: center;
+}
+/* to hide the checkbox itself */
+input[type=checkbox] {
+    display: none;
+}
+
+    input[type=checkbox] + label:before {
+        font-family: FontAwesome;
+        display: inline-block;
+    }
+
+    /*unchecked icon */
+    input[type=checkbox] + label:before {
+        content: "\f096";
+        letter-spacing: 10px;
+    }
+
+    /* checked icon */
+    input[type=checkbox]:checked + label:before {
+        content: "\f046";
+        letter-spacing: 5px;
+    }
+
+.required, .robotNameError, .robotChoreError, .error {
+    color: red;
+}
+
+.search {
+    display: inline;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.searchDrop {
+    display: inline;
+    width: 18%;
+}
+
+.searchContainer, .noResults {
+    text-align: center;
+}
+
+.searchBtn {
+    margin-top: -5px;
+    background-color: cadetblue;
+    color: white;
+    font-weight: 500;
+}
+
+.updateProfile, .RobotTypeList, .numberOfRobots {
+    margin-top: 20px
+}
+
+.updateProfileBtn {
+    text-align: right;
+}
+
+.robotName {
+    margin-bottom: 20px
+}
+
+.choreListTitle {
+    margin-left: 10px;
+}
+
+.choresList {
+    margin-left: 35px
+}
+
+body {
+    font-family: arial;
+}
+
+table {
+    border: 1px solid #ccc;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+    table tr {
+        border: 1px solid #ddd;
+        padding: 5px;
+    }
+
+    table th, table td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    table th {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+.jumbotron {
+    background-image: url("~/images/jumbotronBackground.png");
+    background-color: black;
+}
+
+ol {
+    margin: 2% 0 30px 15%;
+    width: 100%;
+}
+
+ol li {
+    margin: 0 0 10px 0;
+}
+
+@media screen and (max-width: 550px) {
+    table {
+        border: 0;
+    }
+
+        table thead, table th, table tr:first-child {
+            display: none;
+        }
+
+        table tr {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+            table tr:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            table tr:before {
+                display: block;
+                border-bottom: 2px solid #ddd;
+            }
+
+        table td {
+            box-sizing: border-box;
+            display: block;
+            float: right;
+            width: 100%;
+            text-align: right;
+            font-size: 14px;
+            border-bottom: 1px dotted #ccc;
+        }
+
+            table td:last-child {
+                border-bottom: 0;
+            }
+
+            table td:before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+            }
+}
+
+/*Star wars intro https://dev.to/christopherkade/developing-the-star-wars-opening-crawl-in-htmlcss-2j9e */
+
+.star {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background-color: white;
+}
+
+/* Set the animation, color, size and hide the text */
+.intro {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    z-index: 1;
+    animation: intro 6s ease-out 1s;
+    color: rgb(75, 213, 238);
+    font-weight: 400;
+    font-size: 300%;
+    opacity: 0;
+}
+
+@keyframes intro {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Set the animation & hide the logo */
+.logo {
+    position: absolute;
+    top: 38%;
+    left: 12%;
+    z-index: 1;
+    margin: auto;
+    animation: logo 9s ease-out 9s;
+    opacity: 0;
+}
+
+    .logo svg {
+        width: inherit;
+    }
+
+/* Scale the logo down and maintain it centered */
+@keyframes logo {
+    0% {
+        width: 18em;
+        transform: scale(2.75);
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+        width: 18em;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.1);
+        width: 18em;
+    }
+}
+
+p {
+    color: #FFFF82;
+}
+
+/* Set the font, lean the board, position it */
+#board {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    transform: perspective(300px) rotateX(25deg);
+    transform-origin: 50% 100%;
+    /*text-align: justify;*/
+    position: absolute;
+    margin-left: -9em;
+    font-weight: bold;
+    overflow: hidden;
+    font-size: 350%;
+    height: 50em;
+    width: 18em;
+    bottom: 0;
+    left: 48%;
+    color: #FFFF82;
+}
+
+    #board:after {
+        position: absolute;
+        content: ' ';
+        bottom: 60%;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+
+/* Set the scrolling animation and position it */
+#content {
+    animation: scroll 100s linear 16s;
+    position: absolute;
+    top: 100%;
+}
+
+#title, #subtitle {
+    text-align: center;
+}
+
+@keyframes scroll {
+    0% {
+        top: 100%;
+    }
+
+    100% {
+        top: -170%;
+    }
+}
+
+
+

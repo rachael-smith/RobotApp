@@ -1,0 +1,87 @@
+﻿@model CreateRobotModalViewModel
+<div class="modal" tabindex="-1" role="dialog" id="createRobotModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create Robot</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="createRobotModal">
+                <div class="modal-body">
+                    <div class="robotNameError" style="display:none">Robot name is required</div>
+                    <input type="text" id="robotName" placeholder="* Robot Name" class="form-control robotName">
+                    <div class="choreListTitle"><span>*</span> Select 5 or more chores for your robot to complete:</div>
+                    <div class="robotChoreError" style="display:none">You must select at least 5 chores for the robot to perform</div>
+                    <div class="choresList">
+                        @if (Model.ChoresList.Count >= 1)
+                        {
+                            @foreach (var chore in Model.ChoresList)
+                            {
+                                <div class="choreItem">
+                                    <input type="checkbox" value="@chore.ChoreID" class="choreCheckbox" />
+                                    <label class="choreCheckboxLabel">@Html.DisplayFor(modelItem => chore.ChoreName)</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="RobotTypeList">
+                        @if (Model.RobotTypesList != null)
+                        {
+                            <div class="RobotTypeItem">
+                                @Html.DropDownList("RobotType", Model.RobotTypesList, "* - select a robot type -", new { @id = "RobotTypesList", @name = "RobotTypesList", @class = "RobotTypesList form-control" })
+                            </div>
+                        }
+                    </div>
+                    <input type="text" id="numberOfRobots" placeholder="* Number of Robots" class="form-control numberOfRobots">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success submit createRobotSubmit" type="submit" disabled="disabled">Create</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    //form validation (disable submit until criteria met)
+    $('.choreCheckboxLabel').on('click', function () {
+        checkbox = $(this).prev();
+        checkbox.click();
+        validateCreateRobotModal();
+    });
+    $('.robotName, .numberOfRobots').keyup(function () {
+        validateCreateRobotModal();
+    })
+    $('.RobotTypesList').change(function () {
+        validateCreateRobotModal();
+    })
+
+    $('#createRobotModal').on('submit', function (e) {
+        var numberOfRobots = parseInt($('.numberOfRobots').val())
+        for (i = 0; i <= numberOfRobots; i++) {
+            e.preventDefault()
+            var robotInfo = {
+                RobotName: $('.robotName').val(),
+                RobotType: parseInt($('.RobotTypeList :selected').val())
+            }
+            CreateRobot(robotInfo)
+        }
+    });
+    function validateCreateRobotModal() {
+        var count = 0;
+        $('.choresList').find('input[type=checkbox]:checked').each(function () {
+            if (count < 4) {
+                count++
+                $('.submit').prop('disabled', true)
+            } else if ($('.robotName').val().trim() =="" || $('#RobotTypesList').val() < 1 || $('#RobotTypesList').val() == "" || $('.numberOfRobots').val() == "") {
+                $('.submit').prop('disabled', true)
+            }else {
+                $('.submit').prop('disabled', false)
+            }
+        });
+    }
+
+</script>

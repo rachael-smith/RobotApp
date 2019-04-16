@@ -1,0 +1,64 @@
+﻿@model AllRobotsViewModel
+@{
+    ViewData["Title"] = "Robots";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@await Html.PartialAsync("_Search", Model)
+@if (Model != null)
+{
+    if (Model.Robots != null)
+    {
+        <div class="robotsTableContainer">
+            <table class="robotTable table">
+                <tr>
+                    <th></th>
+                    <th>@Html.DisplayNameFor(model => model.Robots[0].RobotID)</th>
+                    <th>@Html.DisplayNameFor(model => model.Robots[0].RobotName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Robots[0].RobotTypeName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Robots[0].CompletedChoreName)</th>
+                </tr>
+                @*TODO: add lazy loading and pagination*@
+                @if (Model.Robots.Count >= 1)
+                {
+                    foreach (var item in Model.Robots)
+                    {
+                        <tr class="table-row">
+                            <td>
+                                <div class="display">
+                                    @Html.ActionLink("Edit", "RobotProfile", new { id = item.RobotID }, new { @class = "btn btn-primary btn-sm" })
+                                    <button type="button" class="btn btn-info btn-sm center performChore" data-toggle="modal" data-target="#performChoreModal">Perform Chore</button>
+                                </div>
+                            </td>
+                            <td data-label="RobotID" class="robotID">
+                                @Html.DisplayFor(modelItem => item.RobotID, new { htmlAttributes = new { @class = "RobotID" } })
+                            </td>
+                            <td data-label="RobotName">
+                                @Html.DisplayFor(modelItem => item.RobotName, new { htmlAttributes = new { @class = "RobotName" } })
+                            </td>
+                            <td data-label="RobotTypeName">
+                                @Html.DisplayFor(modelItem => item.RobotTypeName, new { htmlAttributes = new { @class = "RobotTypeName" } })
+                            </td>
+                            <td data-label="CompletedChoreName">
+                                @Html.DisplayFor(modelItem => item.CompletedChoreName, new { htmlAttributes = new { @class = "CompletedChoreName" } })
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="noResults">No Results</div>
+    }
+}
+@await Html.PartialAsync("_PerformChoreModal", Model)
+
+<script>
+    var robotId
+    $('.performChore').on('click', function () {
+        var row = $(this).closest('tr');
+        robotId = parseInt(row.find('.robotID').text().trim())
+    })
+</script>

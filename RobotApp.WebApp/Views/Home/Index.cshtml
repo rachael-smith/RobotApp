@@ -1,0 +1,43 @@
+﻿@model CreateRobotModalViewModel
+<style>
+    body {
+        background-color: black;
+    }
+</style>
+<audio preload="auto" autoplay>
+    <source src="~/audio/Star_Wars_original_opening_crawl_1977.mp3" type="audio/mpeg">
+</audio>
+<section class="intro">
+    A long time ago, in a galaxy far,<br> far away....
+</section>
+
+<section class="logo">
+    <img class="galactic" src="https://fontmeme.com/permalink/190416/8075d1392c0d185d19e9b49174fdbbd0.png" />
+    <img class="botServices" src="https://fontmeme.com/permalink/190416/0c3d128f26a6997d8a75bd304d996234.png" />
+</section>
+
+<!-- Change the text to your liking -->
+<div id="board">
+    <div id="content">
+        <p id="title">Leaderboard</p>
+        <p id="subtitle">THE CODER'S MENACE</p>
+        <br>
+        @if (Model.Leaderboard.Count >= 1)
+        {
+            <ol class="leaderboardList">
+                @foreach (var robot in Model.Leaderboard)
+                {
+                    <li><strong>@robot.RobotName</strong> has completed <strong>@robot.NumberOfChoresCompleted</strong> chores</li>
+                }
+            </ol>
+        }
+        else
+        {
+            <div> no results </div>
+        }
+    </div>
+</div>
+<div class="text-center">
+    <button type="button" class="btn btn-info btn-lg center" data-toggle="modal" data-target="#createRobotModal">Create Robot</button>
+</div>
+@await Html.PartialAsync("_CreateRobotModal", Model)

@@ -1,0 +1,38 @@
+﻿@model AllRobotsViewModel
+@using (Html.BeginForm("Search", "Robot", FormMethod.Post))
+{
+    <div class="searchContainer">
+        <div class="error">
+            Invalid Search
+        </div>
+        <select class="form-control searchDrop" name="SearchBy" id="SearchBy">
+            <option value="RobotID" id="RobotID">RobotID</option>
+            <option value="RobotName" id="RobotName">Robot Name</option>
+            <option value="RobotTypeName" id="RobotTypeName">Robot Type</option>
+            <option value="TaskCompeleted" id="TaskCompeleted">Task Completed</option>
+        </select>
+        @*TODO: Make a task completed dropdown and add the robotType dropdown*@
+        <div class="search form-group">
+            <input class="form-control mr-sm-2 col-4 search" type="text" placeholder="Search" name="SearchText" id="SearchText">
+            <button class="searchBtn btn" type="submit">Search</button>
+        </div>
+    </div>
+}
+<script>
+    $('.error').hide();
+    $('.searchBtn').click(function (e) {
+        if ($('.searchDrop').val() == 'robotId') {
+            //Make sure input is numeric
+            if (!$.isNumeric($('#SearchText').val().trim())) {
+                e.preventDefault();
+                showError()
+            }
+        }
+    });
+
+    function showError() {
+        //hides error if already showing so you don't get multiple showing
+        $('.error').hide();
+        $('.error').show();
+    }
+</script>

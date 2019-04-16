@@ -1,0 +1,56 @@
+﻿@model AllRobotsViewModel
+<div class="modal" tabindex="-1" role="dialog" id="performChoreModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Perform a Chore</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="performChoreModal">
+                <div class="modal-body">
+                    <div class="choresList">
+                        @if (Model.ChoresList.Count >= 1)
+                        {
+                            @foreach (var chore in Model.ChoresList)
+                            {
+                                <div class="choreItem">
+                                    <input type="checkbox" value="@chore.ChoreID" class="choreCheckbox" />
+                                    <label class="choreCheckboxLabel">@Html.DisplayFor(modelItem => chore.ChoreName)</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success submit performChoreSubmit" type="submit" disabled="disabled">Do Chore</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    //form validation (disable submit until criteria met)
+    $('.choreCheckboxLabel').on('click', function () {
+        checkbox = $(this).prev();
+        checkbox.click();
+        validatePerformChoreModal();
+    });
+
+    $('#performChoreModal').on('submit', function (e) {
+        e.preventDefault()
+        var choresList = GetChoresList();
+        PerformChores(choresList, robotId);
+    });
+
+    function validatePerformChoreModal() {
+        $('.submit').prop('disabled', true)
+        $('.choresList').find('input[type=checkbox]:checked').each(function () {
+             $('.submit').prop('disabled', false) 
+        });
+    }
+
+</script>

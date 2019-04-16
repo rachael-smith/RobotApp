@@ -1,0 +1,17 @@
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\obj\Debug\netcoreapp2.2\RobotApp.API.csprojAssemblyReference.cache
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\obj\Debug\netcoreapp2.2\RobotApp.API.csproj.CoreCompileInputs.cache
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\obj\Debug\netcoreapp2.2\RobotApp.API.RazorAssemblyInfo.cache
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\obj\Debug\netcoreapp2.2\RobotApp.API.RazorAssemblyInfo.cs
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\obj\Debug\netcoreapp2.2\RobotApp.API.AssemblyInfoInputs.cache
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\obj\Debug\netcoreapp2.2\RobotApp.API.AssemblyInfo.cs
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\obj\Debug\netcoreapp2.2\RobotApp.API.RazorTargetAssemblyInfo.cache
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\bin\Debug\netcoreapp2.2\RobotApp.API.deps.json
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\bin\Debug\netcoreapp2.2\RobotApp.API.runtimeconfig.json
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\bin\Debug\netcoreapp2.2\RobotApp.API.runtimeconfig.dev.json
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\bin\Debug\netcoreapp2.2\RobotApp.API.dll
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\bin\Debug\netcoreapp2.2\RobotApp.API.pdb
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\bin\Debug\netcoreapp2.2\RobotApp.Data.dll
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\bin\Debug\netcoreapp2.2\RobotApp.Data.pdb
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\obj\Debug\netcoreapp2.2\RobotApp.API.csproj.CopyComplete
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\obj\Debug\netcoreapp2.2\RobotApp.API.dll
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.API\obj\Debug\netcoreapp2.2\RobotApp.API.pdb

@@ -1,0 +1,14 @@
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\bin\Debug\netcoreapp2.1\RobotApp.Data.deps.json
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\bin\Debug\netcoreapp2.1\RobotApp.Data.dll
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\bin\Debug\netcoreapp2.1\RobotApp.Data.pdb
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.xml
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\obj\Debug\netcoreapp2.1\RobotApp.Data.csprojAssemblyReference.cache
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\obj\Debug\netcoreapp2.1\RobotApp.Data.csproj.CoreCompileInputs.cache
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\obj\Debug\netcoreapp2.1\RobotApp.Data.AssemblyInfoInputs.cache
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\obj\Debug\netcoreapp2.1\RobotApp.Data.AssemblyInfo.cs
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\obj\Debug\netcoreapp2.1\RobotApp.Data.csproj.CopyComplete
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\obj\Debug\netcoreapp2.1\RobotApp.Data.dll
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\obj\Debug\netcoreapp2.1\RobotApp.Data.pdb
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.Data\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.Relational.xml
