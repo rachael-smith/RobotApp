@@ -7,7 +7,7 @@ An app that allows a user to:
 ## Stack
 - Front end: Razor Script, CSS, Jquery
 - API: .Net Core
-- Data - SQLite
+- Data: SQLite
 ## How To Run
 1. Clone Repository
 2. Open Project in Visual Studio 
@@ -22,10 +22,10 @@ An app that allows a user to:
 	    - Set Launch to "Project"
 	    - Save and close that file
 5.  Set Startup Projects
-	    - Find and select "Properties"
-		    - Select "Multiple Startup Projects"
-		    - Set the "RobotApp.API" to "Start"
-		    - Set the "RobotApp.WebApp" to "Start" 
+	- Find and select "Properties"
+	    - Select "Multiple Startup Projects"
+	    - Set the "RobotApp.API" to "Start"
+	    - Set the "RobotApp.WebApp" to "Start"
     #### Note: db is included (didn't add seeding to the project so included db to allow people to run)
 ## Run
 Press F5 or the "Start" button in Visual Studio after following the steps above
