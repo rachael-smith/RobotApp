@@ -14,8 +14,20 @@ namespace RobotApp.API.Services
         private readonly RobotAppContext _RobotAppContext;
         public RobotService(RobotAppContext RobotAppContext) => _RobotAppContext = RobotAppContext;
         #endregion
+
         #region Public Methods
+        /// <summary>
+        /// Get a robot from the database by id passed
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         public async Task<Robot> GetRobotById(int Id) => await _RobotAppContext.Robots.FindAsync(Id);
+
+        /// <summary>
+        /// Creates a robot
+        /// </summary>
+        /// <param name="robotInfo"></param>
+        /// <returns></returns>
         public async Task<Robot> CreateRobot(CreateUpdateRobot robotInfo)
         {
             var newRobot = new Robot
@@ -27,6 +39,12 @@ namespace RobotApp.API.Services
             await _RobotAppContext.SaveChangesAsync();
             return newRobot;
         }
+
+        /// <summary>
+        /// updates a robot with information passed
+        /// </summary>
+        /// <param name="robotInfo"></param>
+        /// <returns></returns>
         public async Task<bool> UpdateRobot(CreateUpdateRobot robotInfo)
         {
             var success = false;
@@ -45,17 +63,18 @@ namespace RobotApp.API.Services
             }
             return success;
         }
-        public List<RobotInfo> GetAllRobots()
-        {
-            try
-            {
-                return GetAllRobotsIQueryable().OrderBy(x => x.RobotID).ToList();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
+
+        /// <summary>
+        /// gets all robots from the database
+        /// </summary>
+        /// <returns></returns>
+        public List<RobotInfo> GetAllRobots() => GetAllRobotsIQueryable().OrderBy(x => x.RobotID).ToList();
+
+        /// <summary>
+        /// Performs search on params passed
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<List<RobotInfo>> SearchRobots(SearchRequest request)
         {
             //TODO:make robot type and chore search by id not string 
@@ -83,10 +102,24 @@ namespace RobotApp.API.Services
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Gets current leaderboard
+        /// </summary>
+        /// <returns></returns>
         public List<Robot> GetLeaderboard() => _RobotAppContext.Robots.OrderByDescending(x => x.NumberOfChoresCompleted).Take(10).ToList();
+
+        /// <summary>
+        /// Gets a dictionary of the robot types (dictionary so they will stay as key value pairs)
+        /// </summary>
+        /// <returns></returns>
         public async Task<Dictionary<int, string>> GetRobotTypes() => await _RobotAppContext.RobotTypes.Distinct().ToDictionaryAsync(t => t.RobotTypeID, t => t.RobotTypeName);
 
         #endregion
+        /// <summary>
+        /// query that needs to be filtered to get all the information for a robot (used for search)
+        /// </summary>
+        /// <returns></returns>
         private IQueryable<RobotInfo> GetAllRobotsIQueryable()
         {
             try

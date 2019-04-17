@@ -22,6 +22,11 @@ namespace RobotApp.API.Services
         }
         #endregion
         #region Public Methods
+        /// <summary>
+        /// Has a robot a chore that is passed to it
+        /// </summary>
+        /// <param name="choreInfo"></param>
+        /// <returns></returns>
         public async Task<CompletedChoreDTO> PerformChore(PerformChore choreInfo)
         {
             var chore = await _RobotAppContext.Chores.FindAsync(choreInfo.ChoreID);
@@ -46,9 +51,20 @@ namespace RobotApp.API.Services
             }
         }
 
+        /// <summary>
+        /// Gets a list of all chores from database
+        /// </summary>
+        /// <returns></returns>
         public List<Chore> GetChoresList() => _RobotAppContext.Chores.ToList();
         #endregion
         #region Private Methods
+        /// <summary>
+        /// Updates the Completed Chores table with the chore that was just performed
+        /// </summary>
+        /// <param name="timer"></param>
+        /// <param name="choreId"></param>
+        /// <param name="robotId"></param>
+        /// <returns></returns>
         private async Task<CompletedChore> UpdateCompletedChores(Stopwatch timer, int choreId, int robotId)
         {
             var completedChore = new CompletedChore
@@ -62,6 +78,13 @@ namespace RobotApp.API.Services
             await _RobotAppContext.SaveChangesAsync();
             return completedChore;
         }
+        /// <summary>
+        /// Creates the DTO that passes to the front end so it can show notification of completion (needed to pass a couple extra params to front end)
+        /// </summary>
+        /// <param name="completedChore"></param>
+        /// <param name="robotName"></param>
+        /// <param name="choreName"></param>
+        /// <returns></returns>
         private CompletedChoreDTO CreateCompletedTaskDTO(CompletedChore completedChore, string robotName, string choreName)
         {
             var completedChoreResponse = new CompletedChoreDTO

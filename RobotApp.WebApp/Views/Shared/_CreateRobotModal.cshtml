@@ -60,6 +60,8 @@
     })
 
     $('#createRobotModal').on('submit', function (e) {
+        //TODO: remove data from inputs in modal after submit
+        $('#createRobotModal').modal('hide');
         var numberOfRobots = parseInt($('.numberOfRobots').val())
         for (i = 0; i < numberOfRobots; i++) {
             e.preventDefault()

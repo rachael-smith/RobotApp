@@ -16,7 +16,7 @@ function CreateRobot(robotInfo) {
         url: '/Home/CreateRobot/',
         data: JSON.stringify(robotInfo),
         success: async function (response) {
-            $.notify(response.robotName + " created", "success");
+            $.notify(response.robotName + " created", "success", { position: "right" });
             await PerformChores(choresList, response.robotID, response.robotName);
         },
         error: function (response) {

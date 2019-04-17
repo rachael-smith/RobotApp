@@ -1,7 +1,4 @@
-﻿/*Star wars intro https://dev.to/christopherkade/developing-the-star-wars-opening-crawl-in-htmlcss-2j9e */
-
-$(document).ready(function () {
-    console.log('moving');
+﻿$(document).ready(function () {
     var context = new AudioContext();
 
     $('body').mousemove(function () {
@@ -10,6 +7,8 @@ $(document).ready(function () {
         });
     });
 });
+
+/*Star wars intro https://dev.to/christopherkade/developing-the-star-wars-opening-crawl-in-htmlcss-2j9e */
 
 
 // Sets the number of stars we wish to display

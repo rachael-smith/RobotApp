@@ -14,6 +14,7 @@ An app that allows a user to:
 3. Restore Project NuGet Dependencies
     -   Right click Solution
     -   Find and select "Restore Nuget Packages"
+		- You may need to get "Microsoft.EntityFrameworkCore" and "Microsoft.EntityFrameworkCore.Relational" Nuget Packages for the "RobotApp.Data" project sometimes the restore doesn't catch them
  4. Configure Projects for Run (must set the API project due to SQLite db)
     -   Right click "RobotApp.API" project
 	    - Find and select "Properties"
@@ -29,6 +30,7 @@ An app that allows a user to:
     #### Note: db is included (didn't add seeding to the project so included db to allow people to run)
 ## Run
 Press F5 or the "Start" button in Visual Studio after following the steps above
+#### Note: if you get build errors down "Microsoft.EntityFrameworkCore" and "Microsoft.EntityFrameworkCore.Relational"
 ## Libraries Used
 - Bootstrap
 - Notify.js

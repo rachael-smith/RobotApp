@@ -42,7 +42,6 @@
 </div>
 <div class="text-center">
     @Html.ActionLink("But Seriously, Here Is the Leaderboard", "Leaderboard", "Home", null, new { @class = "btn btnSeriously btn-primary btn-lg", @style="display:none"})
-    <button type="button" class="btn btn-info btn-lg center" data-toggle="modal" data-target="#createRobotModal">Create Robot</button>
 </div>
 @await Html.PartialAsync("_CreateRobotModal", Model)
 <script>

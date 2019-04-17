@@ -14,7 +14,6 @@
         @if (Model.RobotTypesList != null)
         {
             <div class="RobotTypeItem">
-                @*TODO: need to select value of robot for dropdown*@
                 @Html.DropDownList("RobotType", Model.RobotTypesList, new { @id = "RobotTypesList", @name = "RobotTypesList", @class = "RobotTypesList form-control" })
             </div>
         }
@@ -24,11 +23,12 @@
     </div>
 </form>
 <script>
+    $('.RobotTypesList').val(@Model.Robot.RobotTypeID);
     $('.robotName').keyup(function () {
         validateUpdateRobot();
     })
     $('.RobotTypesList').change(function () {
-        validateCreateRobotModal();
+        validateUpdateRobot();
     })
     function validateUpdateRobot() {
         if ($('.robotName').val().trim() == '' || $('#RobotTypesList').val() < 1 || $('#RobotTypesList').val() == "") {
