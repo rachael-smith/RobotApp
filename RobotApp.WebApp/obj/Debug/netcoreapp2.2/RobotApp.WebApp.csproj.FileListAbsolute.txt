@@ -30,3 +30,4 @@ C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.WebApp\obj\Debug\netcoreapp2.2\
 C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Robot\Robots.g.cshtml.cs
 C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Robot\RobotProfile.g.cshtml.cs
 C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_PerformChoreModal.g.cshtml.cs
+C:\Users\rachael-smith\Desktop\RobotApp\RobotApp.WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\Leaderboard.g.cshtml.cs

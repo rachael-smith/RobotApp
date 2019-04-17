@@ -22,7 +22,7 @@ namespace RobotApp.API.Services
         }
         #endregion
         #region Public Methods
-        public async Task<CompletedChore> PerformChore(PerformChore choreInfo)
+        public async Task<CompletedChoreDTO> PerformChore(PerformChore choreInfo)
         {
             var chore = await _RobotAppContext.Chores.FindAsync(choreInfo.ChoreID);
             var robot = await _RobotAppContext.Robots.FindAsync(choreInfo.RobotID);
@@ -37,13 +37,15 @@ namespace RobotApp.API.Services
                 }
                 robot.NumberOfChoresCompleted = robot.NumberOfChoresCompleted + 1;
                 _RobotAppContext.SaveChanges();
-                return await UpdateCompletedChores(_stopwatch, chore.ChoreID, robot.RobotID);
+                var completedChore = await UpdateCompletedChores(_stopwatch, chore.ChoreID, robot.RobotID);
+                return CreateCompletedTaskDTO(completedChore, robot.RobotName, chore.ChoreName);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
+
         public List<Chore> GetChoresList() => _RobotAppContext.Chores.ToList();
         #endregion
         #region Private Methods
@@ -59,6 +61,19 @@ namespace RobotApp.API.Services
             _RobotAppContext.CompletedChores.Add(completedChore);
             await _RobotAppContext.SaveChangesAsync();
             return completedChore;
+        }
+        private CompletedChoreDTO CreateCompletedTaskDTO(CompletedChore completedChore, string robotName, string choreName)
+        {
+            var completedChoreResponse = new CompletedChoreDTO
+            {
+                TimeTakenToComplete = completedChore.TimeTakenToComplete,
+                ChoreCompletedID = completedChore.ChoreCompletedID,
+                RobotCompletedID = completedChore.RobotCompletedID,
+                ChoreCompletedSuccessfully = true,
+                RobotName = robotName,
+                ChoreCompleted = choreName
+            };
+            return completedChoreResponse;
         }
         #endregion
     }

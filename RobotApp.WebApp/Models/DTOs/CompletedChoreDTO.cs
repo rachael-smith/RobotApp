@@ -6,11 +6,13 @@ namespace RobotApp.WebApp
 {
     public class CompletedChoreDTO
     {
-        public int CompletedTaskID { get; set; }
-        public int TaskCompletedID { get; set; }
+        public int CompletedChoreID { get; set; }
+        public int ChoreCompletedID { get; set; }
         public int RobotCompletedID { get; set; }
         public long TimeTakenToComplete { get; set; }
         public DateTime TimeCompleted { get; set; } = DateTime.Now;
         public bool ChoreCompletedSuccessfully { get; set; }
+        public string ChoreCompleted { get; set; }
+        public string RobotName { get; set; }
     }
 }

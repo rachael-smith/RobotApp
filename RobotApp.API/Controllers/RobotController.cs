@@ -18,7 +18,7 @@ namespace RobotApp.API.Controllers
         #endregion
 
         [Route("api/CreateRobot")]
-        public async Task<int> CreateRobot([FromBody]CreateUpdateRobot robotInfo) => await _robotService.CreateRobot(robotInfo);
+        public async Task<Robot> CreateRobot([FromBody]CreateUpdateRobot robotInfo) => await _robotService.CreateRobot(robotInfo);
         [Route("api/UpdateRobot")]
         public async Task<bool> UpdateRobot([FromBody]CreateUpdateRobot robotInfo) => await _robotService.UpdateRobot(robotInfo);
     }

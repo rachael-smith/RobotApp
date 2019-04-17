@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
-namespace ModTool.WebClient.Helpers
+namespace RobotApp.WebApp
 {
     public class HttpRequestHelper
     {
@@ -19,8 +19,7 @@ namespace ModTool.WebClient.Helpers
         {
             try
             {
-                //TODO:update urls to web config keys
-                uri = "https://localhost:5001/" + uri;
+                uri = AppSettings.BaseUrl + uri;
                 var response = await _httpClient.GetAsync(uri);
                 return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
             }
@@ -34,7 +33,7 @@ namespace ModTool.WebClient.Helpers
         {
             try
             {
-                uri = "https://localhost:5001/" + uri;
+                uri = AppSettings.BaseUrl + uri;
                 var response = await _httpClient.PostAsync(uri, body, new JsonMediaTypeFormatter());
                 return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
             }
@@ -48,7 +47,7 @@ namespace ModTool.WebClient.Helpers
         {
             try
             {
-                uri = "https://localhost:5001/" + uri;
+                uri = AppSettings.BaseUrl + uri;
                 await _httpClient.PostAsync(uri, body, new JsonMediaTypeFormatter());
             }
             catch (Exception e)
@@ -61,7 +60,7 @@ namespace ModTool.WebClient.Helpers
         {
             try
             {
-                uri = "http://localhost:57198/" + uri;
+                uri = AppSettings.BaseUrl + uri;
                 await _httpClient.DeleteAsync(uri);
             }
             catch (Exception e)

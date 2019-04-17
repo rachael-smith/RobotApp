@@ -8,6 +8,6 @@ namespace RobotApp.API.Services
     public interface IChoreService
     {
         List<Chore> GetChoresList();
-        Task<CompletedChore> PerformChore(PerformChore choreInfo);
+        Task<CompletedChoreDTO> PerformChore(PerformChore choreInfo);
     }
 }

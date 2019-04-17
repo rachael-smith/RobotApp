@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RobotApp.WebApp.Models;
 
 namespace RobotApp.WebApp
 {
@@ -30,8 +31,11 @@ namespace RobotApp.WebApp
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            var settingsSection = Configuration.GetSection("AppSettings");
+            var settings = settingsSection.Get<AppSettings>();
 
-
+            services.AddSingleton(settings);
+            services.Configure<AppSettings>(settingsSection);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

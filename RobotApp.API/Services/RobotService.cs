@@ -16,7 +16,7 @@ namespace RobotApp.API.Services
         #endregion
         #region Public Methods
         public async Task<Robot> GetRobotById(int Id) => await _RobotAppContext.Robots.FindAsync(Id);
-        public async Task<int> CreateRobot(CreateUpdateRobot robotInfo)
+        public async Task<Robot> CreateRobot(CreateUpdateRobot robotInfo)
         {
             var newRobot = new Robot
             {
@@ -25,7 +25,7 @@ namespace RobotApp.API.Services
             };
             _RobotAppContext.Robots.Add(newRobot);
             await _RobotAppContext.SaveChangesAsync();
-            return newRobot.RobotID;
+            return newRobot;
         }
         public async Task<bool> UpdateRobot(CreateUpdateRobot robotInfo)
         {
@@ -49,7 +49,7 @@ namespace RobotApp.API.Services
         {
             try
             {
-                return GetAllRobotsIQueryable().OrderBy(x => x.RobotID).Take(10).ToList();
+                return GetAllRobotsIQueryable().OrderBy(x => x.RobotID).ToList();
             }
             catch (Exception e)
             {

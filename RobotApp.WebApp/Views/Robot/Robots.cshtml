@@ -18,7 +18,7 @@
                     <th>@Html.DisplayNameFor(model => model.Robots[0].RobotTypeName)</th>
                     <th>@Html.DisplayNameFor(model => model.Robots[0].CompletedChoreName)</th>
                 </tr>
-                @*TODO: add lazy loading and pagination*@
+                @*TODO: add lazy loading and/or pagination*@
                 @if (Model.Robots.Count >= 1)
                 {
                     foreach (var item in Model.Robots)
@@ -33,13 +33,13 @@
                             <td data-label="RobotID" class="robotID">
                                 @Html.DisplayFor(modelItem => item.RobotID, new { htmlAttributes = new { @class = "RobotID" } })
                             </td>
-                            <td data-label="RobotName">
+                            <td data-label="RobotName" class="robotName">
                                 @Html.DisplayFor(modelItem => item.RobotName, new { htmlAttributes = new { @class = "RobotName" } })
                             </td>
-                            <td data-label="RobotTypeName">
+                            <td data-label="RobotTypeName" class="robotTypeName">
                                 @Html.DisplayFor(modelItem => item.RobotTypeName, new { htmlAttributes = new { @class = "RobotTypeName" } })
                             </td>
-                            <td data-label="CompletedChoreName">
+                            <td data-label="CompletedChoreName" class="completedChoreName">
                                 @Html.DisplayFor(modelItem => item.CompletedChoreName, new { htmlAttributes = new { @class = "CompletedChoreName" } })
                             </td>
                         </tr>
@@ -57,8 +57,11 @@
 
 <script>
     var robotId
+    var robotName
     $('.performChore').on('click', function () {
+        debugger;
         var row = $(this).closest('tr');
         robotId = parseInt(row.find('.robotID').text().trim())
+        robotName = row.find('.robotName').text().trim()
     })
 </script>

@@ -22,7 +22,7 @@ namespace RobotApp.API.Controllers
 
         #region Public Methods
         [Route("api/PerformChore")]
-        public async Task<CompletedChore> PerformChore([FromBody]PerformChore choreInfo) => await _choreService.PerformChore(choreInfo);
+        public async Task<CompletedChoreDTO> PerformChore([FromBody]PerformChore choreInfo) => await _choreService.PerformChore(choreInfo);
         #endregion
     }
 }

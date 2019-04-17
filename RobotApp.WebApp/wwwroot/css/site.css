@@ -1,6 +1,9 @@
 ﻿ul {
     list-style: none;
 }
+nav {
+    z-index: 1;
+}
 .galactic {
     padding-left: 38%;
     margin-bottom: -44px;
@@ -31,6 +34,15 @@
 .leaderboardTitle {
     font-weight: bold;
     text-align: center;
+}
+.actualLeaderboardList {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+    font-size: 21px;
 }
 /* to hide the checkbox itself */
 input[type=checkbox] {
@@ -129,7 +141,7 @@ table {
     }
 
 .jumbotron {
-    background-image: url("~/images/jumbotronBackground.png");
+    background-image: url("../images/jumbotronBackground.png");
     background-color: black;
 }
 
@@ -188,7 +200,7 @@ ol li {
             }
 }
 
-/*Star wars intro https://dev.to/christopherkade/developing-the-star-wars-opening-crawl-in-htmlcss-2j9e */
+/*Star wars intro mainly found here with some edits: https://dev.to/christopherkade/developing-the-star-wars-opening-crawl-in-htmlcss-2j9e */
 
 .star {
     position: absolute;
@@ -201,7 +213,7 @@ ol li {
 .intro {
     position: absolute;
     top: 30%;
-    left: 35%;
+    left: 34%;
     z-index: 1;
     animation: intro 6s ease-out 1s;
     color: rgb(75, 213, 238);
@@ -232,7 +244,7 @@ ol li {
 .logo {
     position: absolute;
     top: 38%;
-    left: 12%;
+    left: 10%;
     z-index: 1;
     margin: auto;
     animation: logo 9s ease-out 9s;
@@ -254,6 +266,7 @@ ol li {
     50% {
         opacity: 1;
         width: 18em;
+        transform: scale(1.5);
     }
 
     100% {
@@ -281,7 +294,7 @@ p {
     height: 50em;
     width: 18em;
     bottom: 0;
-    left: 48%;
+    left: 53%;
     color: #FFFF82;
 }
 
@@ -299,6 +312,8 @@ p {
     animation: scroll 100s linear 16s;
     position: absolute;
     top: 100%;
+    width: 84%;
+    overflow-wrap: break-word;
 }
 
 #title, #subtitle {

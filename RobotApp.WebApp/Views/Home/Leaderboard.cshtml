@@ -1,0 +1,35 @@
+﻿@model CreateRobotModalViewModel
+<div class="jumbotron text-white">
+    <h1 class="leaderboardTitle">Leaderboard</h1>
+    <div class="row">
+        @if (Model.Leaderboard.Count >= 1)
+        {
+            var count = 0;
+            <ol class="actualLeaderboardList">
+                @foreach (var robot in Model.Leaderboard)
+                {
+                    if (count < 5)
+                    {
+                        <li class="columnLeft"><strong>@robot.RobotName</strong> has completed <strong>@robot.NumberOfChoresCompleted</strong> chores</li>
+                    }
+                    else
+                    {
+                        <li class="columnRight"><strong>@robot.RobotName</strong> has completed <strong>@robot.NumberOfChoresCompleted</strong> chores</li>
+                    }
+                    count++;
+                }
+            </ol>
+        }
+        else
+        {
+            <div> no results </div>
+        }
+    </div>
+    <div class="robotImage">
+        <img class="sweepingRobotImage" src="~/images/SweepingRobot.png" />
+    </div>
+</div>
+<div class="text-center">
+    <button type="button" class="btn btn-info btn-lg center" data-toggle="modal" data-target="#createRobotModal">Create Robot</button>
+</div>
+@await Html.PartialAsync("_CreateRobotModal", Model)

@@ -6,7 +6,7 @@ namespace RobotApp.API.Services
 {
     public interface IRobotService
     {
-        Task<int> CreateRobot(CreateUpdateRobot robotInfo);
+        Task<Robot> CreateRobot(CreateUpdateRobot robotInfo);
         List<RobotInfo> GetAllRobots();
         List<Robot> GetLeaderboard();
         Task<Robot> GetRobotById(int Id);

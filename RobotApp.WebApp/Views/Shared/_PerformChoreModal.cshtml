@@ -43,7 +43,7 @@
     $('#performChoreModal').on('submit', function (e) {
         e.preventDefault()
         var choresList = GetChoresList();
-        PerformChores(choresList, robotId);
+        PerformChores(choresList, robotId, robotName);
     });
 
     function validatePerformChoreModal() {
