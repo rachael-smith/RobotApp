@@ -4,10 +4,6 @@
 nav {
     z-index: 1;
 }
-.galactic {
-    padding-left: 38%;
-    margin-bottom: -44px;
-}
 .jumbotron {
     padding: 2rem 2rem;
 }
@@ -213,7 +209,7 @@ ol li {
 .intro {
     position: absolute;
     top: 30%;
-    left: 34%;
+    left: 33%;
     z-index: 1;
     animation: intro 6s ease-out 1s;
     color: rgb(75, 213, 238);
@@ -243,14 +239,20 @@ ol li {
 /* Set the animation & hide the logo */
 .logo {
     position: absolute;
-    top: 38%;
-    left: 10%;
+    top: 41%;
+    left: 43%;
     z-index: 1;
     margin: auto;
     animation: logo 9s ease-out 9s;
     opacity: 0;
 }
-
+.galactic,.botServices {
+    height: 109px;
+    width: 203px;
+}
+.galactic {
+    margin-bottom: -50px;
+}
     .logo svg {
         width: inherit;
     }
@@ -258,21 +260,20 @@ ol li {
 /* Scale the logo down and maintain it centered */
 @keyframes logo {
     0% {
-        width: 18em;
+        width: 10em;
         transform: scale(2.75);
         opacity: 1;
     }
 
     50% {
         opacity: 1;
-        width: 18em;
-        transform: scale(1.5);
+        width: 10em;
     }
 
     100% {
         opacity: 0;
         transform: scale(0.1);
-        width: 18em;
+        width: 10em;
     }
 }
 
@@ -294,7 +295,7 @@ p {
     height: 50em;
     width: 18em;
     bottom: 0;
-    left: 53%;
+    left: 51%;
     color: #FFFF82;
 }
 
@@ -318,6 +319,7 @@ p {
 
 #title, #subtitle {
     text-align: center;
+    padding-left: 18%;
 }
 
 @keyframes scroll {
