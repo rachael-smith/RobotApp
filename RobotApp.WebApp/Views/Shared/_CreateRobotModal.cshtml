@@ -61,7 +61,7 @@
 
     $('#createRobotModal').on('submit', function (e) {
         var numberOfRobots = parseInt($('.numberOfRobots').val())
-        for (i = 0; i <= numberOfRobots; i++) {
+        for (i = 0; i < numberOfRobots; i++) {
             e.preventDefault()
             var robotInfo = {
                 RobotName: $('.robotName').val(),
